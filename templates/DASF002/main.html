@@ -3,9 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
-    <link href="/dist/output.css" rel="stylesheet">
     <link href="https://unpkg.com/@material-tailwind/html@latest/styles/material-tailwind.css" rel="stylesheet" />
     <title>google</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
 </head>
 
 <body>
@@ -16,16 +16,30 @@
                     class="mt-2 max-w-2xl text-center text-2xl font-bold leading-tight sm:text-3xl md:text-4xl md:leading-tight">
                     Get reliable links without worrying about advertising</h3>
                 <form action="" class="mx-auto mt-4 flex w-full max-w-md flex-col gap-3 sm:flex-row sm:gap-0">
-                    <input type="text" name="text" id="text"
+                        <input id="text_search" type="text" name="text"
                         class="grow rounded border-2 border-gray-300 py-3 px-3 focus:border-blue-400 focus:outline-none sm:rounded-l-md sm:rounded-r-none sm:border-r-0"
                         placeholder="Search Anything" />
-                    <button type="submit"
+
+                    <button type="submit" id="search_button"
                         class="rounded bg-blue-400 px-5 py-4 font-bold text-white sm:rounded-l-none sm:rounded-r-md">My
                         Favorites</button>
                 </form>
             </div>
         </div>
     </div>
+    <script>
+        $('#search_button').click(function(){
+            let content = $('#text_search').val();
+            console.log(content);
+
+            if(content.length<=0){
+                alert("Empty");
+                return 0;
+            }
+        });
+
+    </script>
 </body>
+
 
 </html>
