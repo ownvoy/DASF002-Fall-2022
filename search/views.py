@@ -6,6 +6,7 @@ from rest_framework.views import APIView
 
 
 
+
 class Main(APIView):
     def get(self, request):
         search_list = Chrome.googleCrawling(search_term="자바")

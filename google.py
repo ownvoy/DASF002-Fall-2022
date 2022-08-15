@@ -17,11 +17,16 @@ class Chrome:
         driver = webdriver.Chrome()
         driver.get(url)
         data = []
+        count = 0
+
         for x in driver.find_elements(By.CLASS_NAME, "yuRUbf"):
             atag = x.find_element(By.TAG_NAME, "a")
             h3 = x.find_element(By.TAG_NAME, "h3")
             href = atag.get_attribute("href")
             discription = "asfdasf"
             data.append([h3.text, href,discription])
+            count += 1
+            if count == 5:
+                break
         return data
 

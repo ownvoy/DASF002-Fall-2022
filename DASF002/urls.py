@@ -21,6 +21,6 @@ from search.views import Main
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('main/', Sub.as_view()),
+    path('', Sub.as_view()),
     path('main/search', Main.as_view())
 ]
