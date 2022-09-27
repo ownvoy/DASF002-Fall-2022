@@ -10,11 +10,10 @@
 
 <body>
 
-
-    <div class="flex h-screen border-gray-100 bg-white pt-32 flex-col space-y-4">
+    <div class="flex h-screen border-gray-100 bg-white pt-16 flex-col space-y-4 mx-12">
 
         <div class="text-center px-6 pt-16">
-            <div class="grid gap-5 grid-cols-5 grid-rows-1 content-center text-lg font-bold justify-items-center">
+            <div class="grid gap-x-8 grid-cols-4  grid-rows-1 content-center text-lg font-bold justify-items-center">
                 <svg class=" w-14 h-14 content-center" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -48,17 +47,9 @@
                         d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253">
                     </path>
                 </svg>
-
-
-                <svg class="w-14 h-14 mx-20" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z">
-                    </path>
-                </svg>
             </div>
 
-            <div class="grid gap-5 grid-cols-5 grid-rows-1 h-16 content-center text-lg font-bold text-white mt-6 ">
+            <div class="grid gap-8 grid-cols-4 grid-rows-1 h-16 content-center text-lg font-bold text-white mt-6 ">
 
                 <div class=" container mx-auto rounded-lg -transparent pt-4 bg-blue-400">
                     <h4 div class=" text-white font-bold pb-4">News</h4>
@@ -76,22 +67,72 @@
                 <!-- 조금 더 작은 글씨 <div class=" container mx-auto rounded-lg -transparent pt-4 bg-blue-400">
                     non-profit organization
                 </div> -->
-
-                <div class=" container mx-auto rounded-lg -transparent pt-4 bg-blue-400">
-                    <h4 div class=" text-white font-bold pb-4">Blog</h4>
-                </div>
             </div>
 
 
-            <div class="grid gap-4 grid-cols-5 grid-rows-1 h-96 content-center pt-4">
-                {% for result in search %}
-                <div class=" container mx-auto rounded-lg -transparent bg-gray-100">
-                    <h4 class="pt-3">{{result.title}}</h4>
-                    <div class="text-lg">
+            <div class="flex grid gap-8 grid-cols-4 grid-rows-1 h-96 content-center pt-4">
+                {% for result in news %}
+                        <div class=" container mx-auto rounded-lg -transparent bg-gray-100">
+                            <div style=" cursor: pointer;" onclick="window.open('{{result.link}}');">
+                            <h4 class="pt-3 px-3 text-lg font-semibold">{{result.title}}</h4>
+                            </div>
+                            <div class="text-base pt-6 px-3">
                         {{ result.description }}
                     </div>
                 </div>
+                {% empty %}
+                <div class=" container mx-auto rounded-lg -transparent bg-gray-100">
+                    <h4 class="pt-3 px-3 text-lg font-semibold">No news!</h4>
+                </div>
                 {% endfor %}
+
+                {% for result in research %}
+                        <div class=" container mx-auto rounded-lg -transparent bg-gray-100">
+                            <div style=" cursor: pointer;" onclick="window.open('{{result.link}}');">
+                    <h4 class="pt-3 px-3 text-lg font-semibold">{{result.title}}</h4>
+                            </div>
+                    <div class="text-base pt-6 px-3">
+                        {{ result.description }}
+                    </div>
+                </div>
+                {% empty %}
+                <div class=" container mx-auto rounded-lg -transparent bg-gray-100">
+                    <h4 class="pt-3 px-3 text-lg font-semibold">No research!</h4>
+                </div>
+                {% endfor %}
+                
+                {% for result in academic %}
+                        <div class=" container mx-auto rounded-lg -transparent bg-gray-100">
+                            <div style=" cursor: pointer;" onclick="window.open('{{result.link}}');">
+                    <h4 class="pt-3 px-3 text-lg font-semibold">{{result.title}}</h4>
+                            </div>
+                    <div class="text-base pt-6 px-3">
+                        {{ result.description }}
+                    </div>
+                </div>
+                {% empty %}
+                <div class=" container mx-auto rounded-lg -transparent bg-gray-100">
+                    <h4 class="pt-3 px-3 text-lg font-semibold">No academic!</h4>
+                </div>
+                {% endfor %}
+                {% for result in org %}
+                        <div class=" container mx-auto rounded-lg -transparent bg-gray-100">
+                            <div style=" cursor: pointer;" onclick="window.open('{{result.link}}');">
+                    <h4 class="pt-3 px-3 text-lg font-semibold">{{result.title}}</h4>
+                    </div>
+                    <div class="text-base pt-6 px-3">
+                        {{ result.description }}
+                    </div>
+                </div>
+                {% empty %}
+                <div class=" container mx-auto rounded-lg -transparent bg-gray-100">
+                    <h4 class="pt-3 px-3 text-lg font-semibold">No org!</h4>
+                </div>
+                {% endfor %}
+
+            </div>
+
+
             </div>
         </div>
 

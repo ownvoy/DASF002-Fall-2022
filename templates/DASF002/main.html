@@ -21,9 +21,9 @@
                         class="grow rounded border-2 border-gray-300 py-3 px-3 focus:border-blue-400 focus:outline-none sm:rounded-l-md sm:rounded-r-none sm:border-r-0"
                         placeholder="Search Anything" />
 
-                    <button type="submit" id="search_button"
+                    {% comment %} <button type="submit" id="search_button"
                         class="rounded bg-blue-400 px-5 py-4 font-bold text-white sm:rounded-l-none sm:rounded-r-md">My
-                        Favorites</button>
+                        Favorites</button> {% endcomment %}
                 </form>
             </div>
         </div>
@@ -40,7 +40,7 @@
             }
             $.ajax({
                 type: 'POST',
-                url: '/main/search',
+                url: '/main',
                 data: {content: content},
                 dataType: 'json',
                 success:function(json){
